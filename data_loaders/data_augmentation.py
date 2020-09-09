@@ -502,7 +502,7 @@ def fast_warp(img, tf, output_shape, mode='constant', order=1):
     m = tf.params  # tf._matrix is
     # TODO: check if required
     # mode='symmetric'
-    return skimage.transform._warps_cy._warp_fast(img, m, output_shape=output_shape, mode=mode, order=order)
+    return skimage.transform._warps_cy._warp_fast(img.astype(m.dtype), m, output_shape=output_shape, mode=mode, order=order)
 
 
 def build_rescale_transform(downscale_factor, image_shape, target_shape):
